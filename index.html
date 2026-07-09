@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Classroom for Rural Colleges</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>📚 Smart Classroom <span>for Rural Colleges</span></h1>
+    <p id="status" class="status">Checking backend connection…</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="courses">Courses</button>
+    <button class="tab-btn" data-tab="students">Students</button>
+    <button class="tab-btn" data-tab="attendance">Attendance</button>
+    <button class="tab-btn" data-tab="resources">Study Material</button>
+    <button class="tab-btn" data-tab="announcements">Announcements</button>
+  </nav>
+
+  <main>
+
+    <!-- COURSES -->
+    <section id="courses" class="tab-panel active">
+      <h2>Courses</h2>
+      <form id="courseForm" class="card">
+        <input type="text" id="courseTitle" placeholder="Course title" required />
+        <input type="text" id="courseTeacher" placeholder="Teacher name" />
+        <textarea id="courseDesc" placeholder="Description"></textarea>
+        <button type="submit">Add Course</button>
+      </form>
+      <div id="courseList" class="list"></div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section id="students" class="tab-panel">
+      <h2>Students</h2>
+      <form id="studentForm" class="card">
+        <input type="text" id="studentName" placeholder="Full name" required />
+        <input type="text" id="studentRoll" placeholder="Roll number" required />
+        <input type="text" id="studentVillage" placeholder="Village" />
+        <input type="text" id="studentPhone" placeholder="Phone" />
+        <button type="submit">Add Student</button>
+      </form>
+      <div id="studentList" class="list"></div>
+    </section>
+
+    <!-- ATTENDANCE -->
+    <section id="attendance" class="tab-panel">
+      <h2>Attendance</h2>
+      <form id="attendanceForm" class="card">
+        <select id="attCourse" required></select>
+        <select id="attStudent" required></select>
+        <select id="attStatus">
+          <option value="present">Present</option>
+          <option value="absent">Absent</option>
+        </select>
+        <input type="date" id="attDate" />
+        <button type="submit">Mark Attendance</button>
+      </form>
+      <div class="card">
+        <label>View attendance for course:</label>
+        <select id="attViewCourse"></select>
+        <button id="loadAttendanceBtn">Load</button>
+      </div>
+      <div id="attendanceList" class="list"></div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="tab-panel">
+      <h2>Study Material</h2>
+      <form id="resourceForm" class="card">
+        <select id="resCourse" required></select>
+        <input type="text" id="resTitle" placeholder="Resource title" required />
+        <select id="resType">
+          <option value="pdf">PDF</option>
+          <option value="video">Video</option>
+          <option value="link">Link</option>
+          <option value="note">Note</option>
+        </select>
+        <input type="text" id="resUrl" placeholder="URL or file link" required />
+        <button type="submit">Add Resource</button>
+      </form>
+      <div class="card">
+        <label>View resources for course:</label>
+        <select id="resViewCourse"></select>
+        <button id="loadResourcesBtn">Load</button>
+      </div>
+      <div id="resourceList" class="list"></div>
+    </section>
+
+    <!-- ANNOUNCEMENTS -->
+    <section id="announcements" class="tab-panel">
+      <h2>Announcements</h2>
+      <form id="announcementForm" class="card">
+        <input type="text" id="annTitle" placeholder="Title" required />
+        <textarea id="annMessage" placeholder="Message" required></textarea>
+        <button type="submit">Post Announcement</button>
+      </form>
+      <div id="announcementList" class="list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built for low-bandwidth, rural-college classrooms · Backend: Flask + SQLite</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
